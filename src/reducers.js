@@ -1,7 +1,7 @@
 'use strict'
 
 import { RECORDER_START, RECORDER_STOP, RECORDER_PAUSE, RECORDER_RESUME,
-         RECORDER_ON_STOP, RECORDER_GOT_STREAM } from './TYPES'
+         RECORDER_ON_STOP, RECORDER_GOT_STREAM } from './actions/TYPES'
 
 const reducer = (state = {active: false, command: 'none', stream: null, blobs: []}, action) => {
   switch (action.type) {

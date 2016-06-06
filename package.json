@@ -4,7 +4,7 @@
   "description": "Redux actions and bindings for react-recorder",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-register",
     "build": "rimraf lib && babel ./src -d lib"
   },
   "repository": {
@@ -26,8 +26,13 @@
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
+    "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "mocha-sugar-free": "^1.3.1",
     "react": "^15.1.0",
     "react-recorder": "^0.3.1",
     "react-redux": "^4.4.5",

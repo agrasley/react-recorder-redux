@@ -2,4 +2,5 @@
 
 import recorderReducer from './reducers'
 import Recorder from './Recorder'
-export { recorderReducer, Recorder }
+import * as actions from './actions'
+export { recorderReducer, Recorder, actions }

@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux'
 import RecorderComponent from 'react-recorder'
-import { recorderOnStop, recorderGotStream } from './actions'
+import { recorderOnStop, recorderGotStream, recorderUnmount } from './actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
   onStop: recorderOnStop,
-  gotStream: recorderGotStream
+  gotStream: recorderGotStream,
+  onUnmount: recorderUnmount
 }
 
 const Recorder = connect(mapStateToProps, mapDispatchToProps)(RecorderComponent)

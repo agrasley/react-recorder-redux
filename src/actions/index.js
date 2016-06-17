@@ -1,7 +1,7 @@
 'use strict'
 
 import { RECORDER_START, RECORDER_STOP, RECORDER_PAUSE, RECORDER_RESUME,
-         RECORDER_ON_STOP, RECORDER_GOT_STREAM } from './TYPES'
+         RECORDER_ON_STOP, RECORDER_GOT_STREAM, RECORDER_UNMOUNT } from './TYPES'
 
 export const recorderStart = () => {
   return { type: RECORDER_START }
@@ -30,5 +30,11 @@ export const recorderGotStream = (stream) => {
   return {
     type: RECORDER_GOT_STREAM,
     stream: stream
+  }
+}
+
+export const recorderUnmount = () => {
+  return {
+    type: RECORDER_UNMOUNT
   }
 }

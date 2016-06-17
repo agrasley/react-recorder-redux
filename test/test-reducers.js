@@ -7,7 +7,7 @@ const it = require('mocha-sugar-free').it
 const expect = require('chai').expect
 const reducer = require('../src/reducers').default
 const { recorderStart, recorderStop, recorderPause, recorderResume,
-        recorderOnStop, recorderGotStream } = require('../src/actions')
+        recorderOnStop, recorderGotStream, recorderUnmount } = require('../src/actions')
 
 describe('recorder reducer', () => {
   describe('recorderStart actions', () => {
@@ -50,6 +50,13 @@ describe('recorder reducer', () => {
   describe('recorderGotStream actions', () => {
     it('defines the "stream" object', () => {
       expect(reducer(undefined, recorderGotStream('abcd')).stream).to.equal('abcd')
+    })
+  })
+
+  describe('recorderUnmount', () => {
+    it('resets the state', () => {
+      const origState = {active: true, command: 'resume', stream: 'stream', blobs: [1, 2, 3]}
+      expect(reducer(origState, recorderUnmount())).to.eql({active: false, command: 'none', stream: null, blobs: []})
     })
   })
 })

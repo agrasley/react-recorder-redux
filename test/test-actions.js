@@ -6,7 +6,7 @@ const describe = require('mocha-sugar-free').describe
 const it = require('mocha-sugar-free').it
 const expect = require('chai').expect
 const { recorderStart, recorderStop, recorderPause, recorderResume,
-        recorderOnStop, recorderGotStream } = require('../src/actions')
+        recorderOnStop, recorderGotStream, recorderUnmount } = require('../src/actions')
 
 describe('recorder actions', () => {
   describe('recorderStart', () => {
@@ -42,6 +42,12 @@ describe('recorder actions', () => {
   describe('recorderGotStream', () => {
     it('returns an action with the resulting stream object', () => {
       expect(recorderGotStream('abcd')).to.eql({type: '@@react-recorder/GOT_STREAM', stream: 'abcd'})
+    })
+  })
+
+  describe('recorderUnmount', () => {
+    it('returns and action that clears the state', () => {
+      expect(recorderUnmount()).to.eql({type: '@@react-recorder/UNMOUNT'})
     })
   })
 })

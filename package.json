@@ -1,6 +1,6 @@
 {
   "name": "react-recorder-redux",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Redux actions and bindings for react-recorder",
   "main": "lib/index.js",
   "scripts": {

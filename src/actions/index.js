@@ -33,8 +33,9 @@ export const recorderGotStream = (stream) => {
   }
 }
 
-export const recorderUnmount = () => {
+export const recorderUnmount = (stream) => {
   return {
-    type: RECORDER_UNMOUNT
+    type: RECORDER_UNMOUNT,
+    stream: stream
   }
 }

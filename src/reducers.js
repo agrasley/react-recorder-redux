@@ -16,9 +16,14 @@ const reducer = (state = {active: false, command: 'none', stream: null, blobs: [
     case RECORDER_ON_STOP:
       return Object.assign({}, state, {blobs: state.blobs.concat(action.blob)})
     case RECORDER_GOT_STREAM:
-      return Object.assign({}, state, {stream: action.stream})
+      return Object.assign({}, state, {stream: action.stream, blobs: []})
     case RECORDER_UNMOUNT:
-      return {active: false, command: 'none', stream: null, blobs: []}
+      if (state.stream && state.stream.id === action.stream.id) {
+        return {active: false, command: 'none', stream: null, blobs: []}
+      } else {
+        return state
+      }
+      break
     default:
       return state
   }
